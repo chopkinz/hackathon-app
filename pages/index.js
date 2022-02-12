@@ -38,17 +38,3 @@ export default function Home({ animalData }) {
     </div>
   );
 }
-
-export async function getStaticProps() {
-  // pulls JSON data for small cards -> img, location and distance
-  const animalData = await fetch("https://apps.des.qld.gov.au/species/").then(
-    (res) => res.json() // return result to functional component
-  );
-
-  return {
-    // properties
-    props: {
-      animalData,
-    },
-  };
-}
