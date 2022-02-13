@@ -76,7 +76,7 @@ export default function Slider() {
       ref={slideRef}
       className="max-w-4xl mx-auto select-none relative w-full overflow-hidden"
     >
-      {/* <div id="slider" className="aspect-w-16 aspect-h-9">
+      <div id="slider" className="aspect-w-16 aspect-h-9">
         {images.length > 0 && (
           <img
             src={images[currentIndex]}
@@ -85,16 +85,15 @@ export default function Slider() {
             className="rounded-xl object-cover"
           />
         )}
-      </div> */}
-
-      {/* <div className="relative flex w-full my-8  transform -translate-y-1/2 px-3 justify-between items-center ">
+      </div>
+      <div className="relative flex w-full my-8  transform -translate-y-1/2 px-3 justify-between items-center ">
         <button onClick={handleOnPrevClick} className=" slider-btn">
           <FiIcons.FiChevronLeft />
         </button>
         <button onClick={handleOnNextClick} className=" slider-btn">
           <FiIcons.FiChevronRight />
         </button>
-      </div> */}
+      </div>
     </div>
   );
 }

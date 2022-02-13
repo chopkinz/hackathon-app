@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import { useWeb3 } from "@3rdweb/hooks";
 import { useEffect } from "react";
@@ -7,9 +5,9 @@ import { client } from "../lib/sanityClient";
 import toast, { Toaster } from "react-hot-toast";
 
 const style = {
-  wrapper: ``,
+  wrapper: `relative`,
   walletConnectWrapper: `flex flex-col justify-center items-center h-screen w-screen bg-[#3b3d42] `,
-  button: `border border-[#282b2f] bg-[#2081e2] p-[0.8rem] text-xl font-semibold rounded-lg cursor-pointer text-black`,
+  button: `border border-[#282b2f] bg-[#363840] p-[0.8rem] text-xl font-semibold rounded-lg cursor-pointer text-black`,
   details: `text-lg text-center text=[#282b2f] font-semibold mt-4`,
 };
 
@@ -49,21 +47,23 @@ export default function Home() {
 
   return (
     <div className={style.wrapper}>
-      <Toaster position="top-center" reverseOrder={false} />
-      {address ? (
-        <>
-          <Hero />
-        </>
-      ) : (
-        <div className={style.walletConnectWrapper}>
-          <button
-            className={style.button}
-            onClick={() => connectWallet("injected")}
-          >
-            Connect Your Wallet
-          </button>
-        </div>
-      )}
+      <div className="before:content-[''] before:bg-black before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[{pic}] before:bg-cover before:bg-center before:opacity-30 before:blur">
+        <Toaster position="top-center" reverseOrder={false} />
+        {address ? (
+          <>
+            <Hero />
+          </>
+        ) : (
+          <div className={style.walletConnectWrapper}>
+            <button
+              className="text-gray-900 relative text-lg font-semibold px-12 py-4 bg-[white] rounded-lg mr-5 hover:bg-gray-200 cursor-pointer"
+              onClick={() => connectWallet("injected")}
+            >
+              Connect Your Wallet
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
