@@ -56,6 +56,11 @@ export default function Showcase() {
     request("/api/graphql", query, { first: 10, skip: (pageNum - 1) * 10 })
       .then((response) => {
         setAnimals(response.allAnimals);
+        response.allAnimals.forEach((animal) => {
+          if (animal.image) {
+            console.log(animal.common_name);
+          }
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -76,7 +81,7 @@ export default function Showcase() {
   return (
     <div>
       {animals.map((animal) => {
-        console.log(animal);
+        // console.log(animal);
         return <ShowcaseItem {...animal} />;
       })}
       <Pagination
