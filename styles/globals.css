@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  background-color: #202225;
-  padding: 0;
-  margin: 0;
+.fade-anim img {
+  animation: fadeAnim 0.5s ease-in-out;
+}
+@keyframes fadeAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+@layer components {
+  .slider-btn {
+    @apply bg-white  text-gray-900 p-1 rounded-full cursor-pointer hover:bg-opacity-75 transition text-2xl;
+  }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import pic from "../assets/pic2.jpg";
+import Slider from "../components/Slider";
 
 const style = {
   wrapper: `relative`,
@@ -25,6 +26,7 @@ function Hero() {
         <div className={style.contentWrapper}>
           <div className={style.copyContainer}>
             <div className={style.title}>Discover, collect, and sell</div>
+            <Slider />
             <div className={style.description}>
               Buy and Sell NFTs to support endangered species
             </div>
@@ -34,7 +36,6 @@ function Hero() {
             </div>
           </div>
           <div className={style.cardContainer}>
-            
             <div className={style.infoContainer}>
               img
               <div className={style.author}>
