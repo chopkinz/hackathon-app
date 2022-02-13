@@ -80,39 +80,19 @@ export default function Showcase() {
     return <div>Loading...</div>;
   }
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={6}>
-        {coords}
-        <Grid container spacing={2}>
-          {animals.map((animal) => {
-            return (
-              <Grid
-                item
-                xs={12}
-                onClick={() =>
-                  setCoords([
-                    parseFloat(animal.longitude),
-                    parseFloat(animal.latitude),
-                  ])
-                }
-              >
-                <ShowcaseItem {...animal} />
-              </Grid>
-            );
-          })}
-        </Grid>
-        <Pagination
-          count={Math.ceil(animalCount / 10)}
-          page={currentPage}
-          onChange={(_event, value) => {
-            setCurrentPage(value);
-            getData(value);
-          }}
-        />
-      </Grid>
-      <Grid item xs={6}>
-        <Mapbox coords={coords} />
-      </Grid>
-    </Grid>
+    <div>
+      {animals.map((animal, i) => {
+        // console.log(animal);
+        return <ShowcaseItem key={i} {...animal} />;
+      })}
+      <Pagination
+        count={Math.ceil(animalCount / 10)}
+        page={currentPage}
+        onChange={(_event, value) => {
+          setCurrentPage(value);
+          getData(value);
+        }}
+      />
+    </div>
   );
 }
