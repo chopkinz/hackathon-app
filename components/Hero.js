@@ -1,6 +1,7 @@
 import React from "react";
 import pic from "../assets/pic2.jpg";
 import Slider from "../components/Slider";
+import Link from "next/link";
 
 const style = {
   wrapper: `relative`,
@@ -31,12 +32,13 @@ function Hero() {
               Buy and Sell NFTs to support endangered species
             </div>
             <div className={style.ctaContainer}>
-              <button className={style.accentedButton}>Explore</button>
-              <button className={style.button}>Create</button>
+              <Link href="/showcase" passHref>
+                <button className={style.accentedButton}>Explore</button>
+              </Link>
             </div>
           </div>
           <div className={style.cardContainer}>
-            <div className={style.infoContainer}>
+            {/* <div className={style.infoContainer}>
               img
               <div className={style.author}>
                 <div className={style.name}>Random Animal</div>
@@ -47,7 +49,7 @@ function Hero() {
                   animal description
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

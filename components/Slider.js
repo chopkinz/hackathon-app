@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect, useRef } from "react";
 import * as FiIcons from "react-icons/fi";
 import { gql, request } from "graphql-request";
@@ -75,28 +76,25 @@ export default function Slider() {
       ref={slideRef}
       className="max-w-4xl mx-auto select-none relative w-full overflow-hidden"
     >
-      <div id="slider" className="aspect-w-16 aspect-h-9">
+      {/* <div id="slider" className="aspect-w-16 aspect-h-9">
         {images.length > 0 && (
           <img
             src={images[currentIndex]}
             alt="alt"
-            layout="fill"
-            width="40"
-            height="40"
-            objectFit="cover"
-            className="rounded-xl"
+            height="450px"
+            className="rounded-xl object-cover"
           />
         )}
-      </div>
+      </div> */}
 
-      <div className="relative flex w-full my-8  transform -translate-y-1/2 px-3 justify-between items-center ">
+      {/* <div className="relative flex w-full my-8  transform -translate-y-1/2 px-3 justify-between items-center ">
         <button onClick={handleOnPrevClick} className=" slider-btn">
           <FiIcons.FiChevronLeft />
         </button>
         <button onClick={handleOnNextClick} className=" slider-btn">
           <FiIcons.FiChevronRight />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
