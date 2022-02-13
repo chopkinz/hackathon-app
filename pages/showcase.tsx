@@ -59,8 +59,8 @@ export default function Showcase() {
       .then((response) => {
         setAnimals(response.allAnimals);
         setCoords([
-          response.allAnimals[0].latitude,
           response.allAnimals[0].longitude,
+          response.allAnimals[0].latitude,
         ]);
       })
       .catch((error) => {
@@ -90,7 +90,6 @@ export default function Showcase() {
                 item
                 xs={12}
                 onClick={() => {
-                  console.log(animal);
                   setCoords([
                     parseFloat(animal.longitude),
                     parseFloat(animal.latitude),
