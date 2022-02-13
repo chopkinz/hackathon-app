@@ -8,8 +8,15 @@ type Context = {
 };
 const resolvers = {
   Query: {
-    allAnimals: async (_parent: any, _args: any, context: Context) => {
-      return await context.prisma.animal.findMany();
+    allAnimals: async (
+      _parent: any,
+      { skip, first }: { skip: number; first: number },
+      context: Context
+    ) => {
+      return await context.prisma.animal.findMany({
+        skip: skip,
+        ...(first > 0 && { take: first }),
+      });
     },
     randomAnimal: async (_parent: any, _args: any, context: Context) => {
       const animal = await context.prisma.$queryRaw`SELECT *
