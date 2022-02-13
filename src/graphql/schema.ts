@@ -20,7 +20,9 @@ const typeDefs = gql`
   }
 
   type Query {
-    getAnimals: [Animal]!
+    allAnimals: [Animal]!
+    randomAnimal: Animal
+    animal(scientificName: String): Animal
   }
 `;
 
