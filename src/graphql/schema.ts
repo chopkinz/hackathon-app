@@ -14,8 +14,6 @@ const typeDefs = gql`
     genus: String
     species: String
     image: String
-    description: String
-    diet: String
   }
 
   type Query {
