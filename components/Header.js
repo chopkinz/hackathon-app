@@ -57,12 +57,6 @@ function NavBar() {
             <MdIcons.MdOutlineAccountBalanceWallet />
           </div>
         </div>
-        <div className="text-[#8a939b] text-3xl font-black px-4 hover:text-white cursor-pointer">
-          <CgProfile />
-        </div>
-        <div className="text-[#8a939b] text-3xl font-black px-4 hover:text-white cursor-pointer">
-          <MdIcons.MdOutlineAccountBalanceWallet />
-        </div>
       </div>
   );
 }
