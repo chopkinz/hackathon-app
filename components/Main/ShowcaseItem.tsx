@@ -23,7 +23,7 @@ export const ShowcaseItem = (props: Props) => {
             <img src={props.image} className="object-scale-down" alt="Animal Photo" />
           </div>
           <div className="flex-initial w-64">
-            <p className='font-sans'>{props.scientificName}</p>
+            <p className='font-sans'>{props.scientific_name}</p>
           </div>
           <div className="flex-initial w-32">
             03
