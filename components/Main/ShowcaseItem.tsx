@@ -16,6 +16,8 @@ interface Props {
 }
 
 export const ShowcaseItem = (props: Props) => {
+  const [trueStatus, setTrueStatus] = useState()
+
   return (
     <Card className="flex flex-row select-none justify-between">
       <CardMedia
@@ -24,23 +26,24 @@ export const ShowcaseItem = (props: Props) => {
         image={props.image}
         alt={props.common_name}
       />
-          <CardContent sx={{ flex: '1 0 auto' }}>
-            <Typography component="div" variant="h5" className="font-sans font-bold">
-              {props.common_name}
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div" className="italic">
-              {props.scientific_name}
-            </Typography>
-            <br/>
-            <Typography variant="subtitle1" color="text.secondary" component="div" className="font-mono">
-              {props.status}
-            </Typography>
-            <Box sx={{alignItems: 'center', pl: 3, pb: 1, backgroundColor: 'red'}} className="w-48">
-            </Box>
-          </CardContent>
-          <Button color="primary" variant="contained">Contained</Button>
 
- 
-    </Card>
+      {/* Information and sponsoring metrics */}
+      <CardContent sx={{ flex: '1 0 auto' }}>
+        <Typography component="div" variant="h5" className="font-sans font-bold">
+          {props.common_name}
+        </Typography>
+        <Typography variant="subtitle1" color="text.secondary" component="div" className="italic">
+          {props.scientific_name}
+        </Typography>
+        <br/>
+        <Typography variant="subtitle1" color="text.secondary" component="div" className="font-mono">
+          {/* If not surviving, assume extinct */}
+          {props.status == "Extant (resident)" ? "Endangered" : "Extinct"}
+        </Typography>
+        <Box sx={{alignItems: 'center', pl: 3, pb: 1, backgroundColor: props.status == "Extant (resident)" ? "red" : "black"}} className="w-48">
+        </Box>
+      </CardContent>
+      <Button color="primary" variant="contained">Contained</Button>
+</Card>
   );
 };
