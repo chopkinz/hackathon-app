@@ -39,12 +39,12 @@ async function main() {
         genus: item.ExtendedData.SchemaData.SimpleData[21],
         family: item.ExtendedData.SchemaData.SimpleData[20],
         latitude: Number.parseFloat(
-          animalData[0].Polygon.outerBoundaryIs.LinearRing.coordinates.split(
+          item.Polygon?.outerBoundaryIs.LinearRing.coordinates.split(
             ","
           )[1]
         ),
         longitude: Number.parseFloat(
-          animalData[0].Polygon.outerBoundaryIs.LinearRing.coordinates.split(
+          item.Polygon?.outerBoundaryIs.LinearRing.coordinates.split(
             ","
           )[0]
         ),
