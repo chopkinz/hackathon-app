@@ -1,5 +1,4 @@
 import { gql } from "apollo-server-micro";
-
 const typeDefs = gql`
   type Animal {
     common_name: String!
@@ -23,6 +22,7 @@ const typeDefs = gql`
     allAnimals: [Animal]!
     randomAnimal: Animal
     animal(scientificName: String): Animal
+    test: File
   }
 `;
 

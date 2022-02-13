@@ -20,4 +20,5 @@ model Animal {
   order           String?
   phylum          String?
   type            String?
+  url             String?
 }
