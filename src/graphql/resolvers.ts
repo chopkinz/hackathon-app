@@ -42,6 +42,17 @@ const resolvers = {
         },
       });
     },
+    animalImages: async (_parent: any, _args: any, context: Context) => {
+      const animals = await context.prisma.animal.findMany({
+        where: {
+          NOT: [{ image: null }],
+        },
+        select: {
+          image: true,
+        },
+      });
+      return animals.map((animal) => animal.image);
+    },
     randomAnimal: async (_parent: any, _args: any, context: Context) => {
       const animal = await context.prisma.$queryRaw`SELECT *
       FROM "Animal"
