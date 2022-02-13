@@ -80,9 +80,9 @@ export default function Showcase() {
   }
   return (
     <div>
-      {animals.map((animal) => {
+      {animals.map((animal, i) => {
         // console.log(animal);
-        return <ShowcaseItem {...animal} />;
+        return <ShowcaseItem key={i} {...animal} />;
       })}
       <Pagination
         count={Math.ceil(animalCount / 10)}
