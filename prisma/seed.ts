@@ -23,7 +23,7 @@ async function main() {
       } else {
         animalType = "freshwater";
       }
-      const animalObj = urlMapping.filter((map) => {
+      const animalObj = urlMapping.filter((map: { sn: any }) => {
         return map.sn == item.ExtendedData.SchemaData.SimpleData[1];
       })[0];
 
@@ -47,7 +47,7 @@ async function main() {
         phylum: item.ExtendedData.SchemaData.SimpleData[17],
         status: item.ExtendedData.SchemaData.SimpleData[15],
         type: animalType,
-        url: animalObj?.im || null,
+        image: animalObj?.im || null,
       };
     });
 
