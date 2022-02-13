@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import { Box, Card, CardContent, CardMedia, IconButton, Typography, Button } from "@mui/material";
 
 interface Props {
   common_name: string;
@@ -17,25 +17,30 @@ interface Props {
 
 export const ShowcaseItem = (props: Props) => {
   return (
-    <div className=" border-2 border-solid rounded-3xl drop-shadow-lg cursor-pointer">
-      <div className="flex pl-7 pt-3 content-center items-start ">
-        <div className="flex-none w-48 h-48">
-          <img
-            src={props.image}
-            className="object-scale-down"
-            alt="Animal Photo"
-          />
-        </div>
-        <div className="flex-initial w-64 pt-2">
-          <p className="font-sans font-extrabold text-xl ">
-            {props.common_name}
-          </p>
-          <p className="font-sans italic">{props.scientific_name}</p>
-          <br />
-          <p className="font-mono font-extralight">{props.status}</p>
-        </div>
-        <div className="flex-initial w-32">03</div>
-      </div>
-    </div>
+    <Card className="flex flex-row select-none justify-between">
+      <CardMedia
+        component="img"
+        sx={{ width: 150 , height: 150, p:1, borderRadius: 5}}
+        image={props.image}
+        alt={props.common_name}
+      />
+          <CardContent sx={{ flex: '1 0 auto' }}>
+            <Typography component="div" variant="h5" className="font-sans font-bold">
+              {props.common_name}
+            </Typography>
+            <Typography variant="subtitle1" color="text.secondary" component="div" className="italic">
+              {props.scientific_name}
+            </Typography>
+            <br/>
+            <Typography variant="subtitle1" color="text.secondary" component="div" className="font-mono">
+              {props.status}
+            </Typography>
+            <Box sx={{alignItems: 'center', pl: 3, pb: 1, backgroundColor: 'red'}} className="w-48">
+            </Box>
+          </CardContent>
+          <Button color="primary" variant="contained">Contained</Button>
+
+ 
+    </Card>
   );
 };
