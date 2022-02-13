@@ -1,7 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { MicroRequest } from "apollo-server-micro/dist/types";
 import { ServerResponse } from "http";
-import { GraphQLUpload } from "graphql-upload";
 type Context = {
   req: MicroRequest;
   res: ServerResponse;
