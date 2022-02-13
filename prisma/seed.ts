@@ -8,11 +8,13 @@ const prisma = new PrismaClient({
 });
 
 async function main() {
+  const sns = [];
   fs.readFile("./prisma/fileExports/mammals.xml", (err, data) => {
     const parser = new XMLParser();
     let jsonObj = parser.parse(data);
 
     let animalData: any[] = jsonObj.kml.Document.Folder.Placemark;
+    console.log(animalData.length);
     // @ts-ignore
     const mapped: Prisma.AnimalCreateManyInput = animalData.map((item) => {
       let animalType = "";
@@ -26,7 +28,10 @@ async function main() {
       const animalObj = urlMapping.filter((map: { sn: any }) => {
         return map.sn == item.ExtendedData.SchemaData.SimpleData[1];
       })[0];
-
+      sns.push({
+        sn: item.ExtendedData.SchemaData.SimpleData[1],
+        cn: animalObj?.cn,
+      });
       return {
         scientific_name: item.ExtendedData.SchemaData.SimpleData[1],
         common_name: animalObj?.cn || null,
@@ -56,6 +61,7 @@ async function main() {
         data: mapped,
         skipDuplicates: true,
       });
+      console.log(sns.sort((animal) => animal.sn));
     })();
   });
 }

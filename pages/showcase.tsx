@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { request, gql } from "graphql-request";
-import { Pagination } from "@mui/material";
+import { Grid, Pagination } from "@mui/material";
 import { ShowcaseItem } from "../components/Main/ShowcaseItem";
+import Mapbox from "../components/Main/Mapbox";
 interface Animal {
   common_name: string;
   scientific_name: string;
@@ -48,6 +49,7 @@ export default function Showcase() {
   const [animals, setAnimals] = useState<Animal[]>([] as Animal[]);
   const [currentPage, setCurrentPage] = useState(1);
   const [animalCount, setAnimalCount] = useState(0);
+  const [coords, setCoords] = useState([0, 0]);
   const getAnimalCount = async () => {
     const response = await request("/api/graphql", animalCountQuery);
     setAnimalCount(response.animalCount);
@@ -56,11 +58,10 @@ export default function Showcase() {
     request("/api/graphql", query, { first: 10, skip: (pageNum - 1) * 10 })
       .then((response) => {
         setAnimals(response.allAnimals);
-        response.allAnimals.forEach((animal) => {
-          if (animal.image) {
-            console.log(animal.common_name);
-          }
-        });
+        setCoords([
+          response.allAnimals[0].latitude,
+          response.allAnimals[0].longitude,
+        ]);
       })
       .catch((error) => {
         console.log(error);
@@ -79,19 +80,39 @@ export default function Showcase() {
     return <div>Loading...</div>;
   }
   return (
-    <div>
-      {animals.map((animal) => {
-        // console.log(animal);
-        return <ShowcaseItem {...animal} />;
-      })}
-      <Pagination
-        count={Math.ceil(animalCount / 10)}
-        page={currentPage}
-        onChange={(_event, value) => {
-          setCurrentPage(value);
-          getData(value);
-        }}
-      />
-    </div>
+    <Grid container spacing={2}>
+      <Grid item xs={6}>
+        {coords}
+        <Grid container spacing={2}>
+          {animals.map((animal) => {
+            return (
+              <Grid
+                item
+                xs={12}
+                onClick={() =>
+                  setCoords([
+                    parseFloat(animal.longitude),
+                    parseFloat(animal.latitude),
+                  ])
+                }
+              >
+                <ShowcaseItem {...animal} />
+              </Grid>
+            );
+          })}
+        </Grid>
+        <Pagination
+          count={Math.ceil(animalCount / 10)}
+          page={currentPage}
+          onChange={(_event, value) => {
+            setCurrentPage(value);
+            getData(value);
+          }}
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <Mapbox coords={coords} />
+      </Grid>
+    </Grid>
   );
 }
