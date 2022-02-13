@@ -1,7 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { request, gql } from "graphql-request";
 import { Pagination } from "@mui/material";
-
+import { ShowcaseItem } from "../components/Main/ShowcaseItem";
+interface Animal {
+  commonName: string;
+  scientificName: string;
+  longitude: string;
+  latitude: string;
+  status: string;
+  family: string;
+  order: string;
+  class: string;
+  phylum: string;
+  kingdom: string;
+  genus: string;
+  species?: string;
+  image: string;
+}
 const query = gql`
   query allAnimals($first: Int, $skip: Int) {
     allAnimals(first: $first, skip: $skip) {
@@ -30,7 +45,7 @@ const animalCountQuery = gql`
 
 export default function Showcase() {
   const [dataLoading, setDataLoading] = useState(false);
-  const [animals, setAnimals] = useState([]);
+  const [animals, setAnimals] = useState<Animal[]>([] as Animal[]);
   const [currentPage, setCurrentPage] = useState(1);
   const [animalCount, setAnimalCount] = useState(0);
   const getAnimalCount = async () => {
@@ -60,7 +75,10 @@ export default function Showcase() {
   }
   return (
     <div>
-      {JSON.stringify(animals)}
+      {animals.map((animal) => {
+        console.log(animal);
+        return <ShowcaseItem {...animal} />;
+      })}
       <Pagination
         count={Math.ceil(animalCount / 10)}
         page={currentPage}
