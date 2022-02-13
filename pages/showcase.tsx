@@ -89,12 +89,13 @@ export default function Showcase() {
               <Grid
                 item
                 xs={12}
-                onClick={() =>
+                onClick={() => {
+                  console.log(animal);
                   setCoords([
                     parseFloat(animal.longitude),
                     parseFloat(animal.latitude),
-                  ])
-                }
+                  ]);
+                }}
               >
                 <ShowcaseItem {...animal} />
               </Grid>

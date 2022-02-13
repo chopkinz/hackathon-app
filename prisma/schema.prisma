@@ -10,8 +10,8 @@ datasource db {
 model Animal {
   scientific_name String  @id
   common_name     String?
-  latitude        Float?
-  longitude       Float?
+  latitude        Float? @default(-5)
+  longitude       Float? @default(28)
   status          String?
   class           String?
   family          String?

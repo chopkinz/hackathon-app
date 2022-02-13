@@ -9,8 +9,13 @@ export default function Mapbox({ coords }) {
   const [lat, setLat] = useState(42.35);
   const [zoom, setZoom] = useState(9);
   useEffect(() => {
-    setLng(coords[0]);
-    setLat(coords[1]);
+    console.log("sadfgklhasf");
+    // map.current = new mapboxgl.Map({
+    //   container: mapContainer.current,
+    //   style: "mapbox://styles/mapbox/streets-v11",
+    //   center: coords,
+    //   zoom: zoom,
+    // });
   }, [coords]);
   useEffect(() => {
     if (map.current) return; // initialize map only once
