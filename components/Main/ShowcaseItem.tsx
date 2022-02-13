@@ -53,7 +53,7 @@ export const ShowcaseItem = (props: Props) => {
         <div className="items-center">
           <Link>
             <a href="https://thirdweb.com/rinkeby/0x76643274F1e0688b8C07f46aE185607429903F94/marketplace/0x95Bd8ED5E39a35F98D7487edf2796f3A106566cb">
-              <button color="primary" className="button">Sponsor</button>
+              <button color="primary" className="button">{props.status == "Extant (resident)" ? "Sponsor" : "F In Chat"}</button>
             </a>
           </Link>
       </div>
