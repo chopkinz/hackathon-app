@@ -5,9 +5,8 @@ mapboxgl.accessToken =
 export default function Mapbox({ coords }) {
   console.log(coords);
   const mapContainer = useRef(null);
+  const popup = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
   const [zoom, setZoom] = useState(9);
   useEffect(() => {
     map.current?.flyTo({ center: coords });
@@ -17,7 +16,7 @@ export default function Mapbox({ coords }) {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [lng, lat],
+      center: coords,
       zoom: zoom,
     });
   }, [lng, lat, zoom]);
