@@ -9,8 +9,23 @@ type Context = {
 };
 const resolvers = {
   Query: {
-    getAnimals: async (_parent: any, _args: any, context: Context) => {
+    allAnimals: async (_parent: any, _args: any, context: Context) => {
       return await context.prisma.animal.findMany();
+    },
+    randomAnimal: async (_parent: any, _args: any, context: Context) => {
+      return context.prisma.$queryRaw`SELECT *
+      FROM "Animal"
+      ORDER BY random()
+      LIMIT 1;`;
+    },
+    animal: async (
+      _parent: any,
+      { scientificName }: { scientificName: string },
+      context: Context
+    ) => {
+      return context.prisma.animal.findUnique({
+        where: { scientific_name: scientificName },
+      });
     },
   },
 };
