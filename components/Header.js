@@ -34,12 +34,18 @@ function NavBar() {
           </Link> */}
           <div className="text-white px-4 font-bold  hover:text-white cursor-pointer">
             {" "}
-            Stats{" "}
-          </div>
-          <div className="text-white px-4 font-bold hover:text-white cursor-pointer">
+            <a>
+            Stats
+            </a>
             {" "}
-            Resources{" "}
           </div>
+          <a href="https://www.iucnredlist.org/" target="_blank" rel="noreferrer">
+            <div className="text-white px-4 font-bold hover:text-white cursor-pointer">
+              {" "}
+                  Resources
+              {" "}
+            </div>
+          </a>
           <div className="text-white px-4 font-bold  hover:text-white cursor-pointer">
             {" "}
             Create{" "}
