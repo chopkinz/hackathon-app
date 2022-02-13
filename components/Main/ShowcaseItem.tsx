@@ -18,12 +18,15 @@ interface Props {
 export const ShowcaseItem = (props: Props) => {
   return(
     <div className="w-[800px] h-[160px] border-2 border-solid rounded-3xl drop-shadow-lg">
-        <div className="flex pl-7 pt-3 content-center items-center">
+        <div className="flex pl-7 pt-3 content-center items-start ">
           <div className="flex-none w-48 h-48">
             <img src={props.image} className="object-scale-down" alt="Animal Photo" />
           </div>
-          <div className="flex-initial w-64">
-            <p className='font-sans'>{props.scientific_name}</p>
+          <div className="flex-initial w-64 pt-2">
+            <p className='font-sans font-extrabold text-xl '>{props.common_name}</p>
+            <p className='font-sans italic'>{props.scientific_name}</p>
+            <br/>
+            <p className='font-mono font-extralight'>{props.status}</p>
           </div>
           <div className="flex-initial w-32">
             03
