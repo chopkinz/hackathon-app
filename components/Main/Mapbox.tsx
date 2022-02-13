@@ -16,11 +16,9 @@ export default function Mapbox({ coords }) {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      width: "100%",
-      height: "100%",
       style: "mapbox://styles/mapbox/streets-v11",
       center: coords,
-      
+      zoom: zoom      
     });
   });
   return (
