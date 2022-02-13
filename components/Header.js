@@ -32,17 +32,30 @@ function NavBar() {
         {/* <Link href="ref">
             <div className={style.headerItem}> Collections </div>
           </Link> */}
-        <div className="text-white px-4 font-bold  hover:text-white cursor-pointer">
-          {" "}
-          Stats{" "}
-        </div>
-        <div className="text-white px-4 font-bold hover:text-white cursor-pointer">
-          {" "}
-          Resources{" "}
-        </div>
-        <div className="text-white px-4 font-bold  hover:text-white cursor-pointer">
-          {" "}
-          Donate{" "}
+          <div className="text-white px-4 font-bold  hover:text-white cursor-pointer">
+            {" "}
+            <a>
+            Stats
+            </a>
+            {" "}
+          </div>
+          <a href="https://www.iucnredlist.org/" target="_blank" rel="noreferrer">
+            <div className="text-white px-4 font-bold hover:text-white cursor-pointer">
+              {" "}
+                  Resources
+              {" "}
+            </div>
+          </a>
+          <div className="text-white px-4 font-bold  hover:text-white cursor-pointer">
+            {" "}
+            Create{" "}
+          </div>
+          <div className="text-[#8a939b] text-3xl font-black px-4 hover:text-white cursor-pointer">
+            <CgProfile />
+          </div>
+          <div className="text-[#8a939b] text-3xl font-black px-4 hover:text-white cursor-pointer">
+            <MdIcons.MdOutlineAccountBalanceWallet />
+          </div>
         </div>
         <div className="text-[#8a939b] text-3xl font-black px-4 hover:text-white cursor-pointer">
           <CgProfile />
