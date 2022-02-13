@@ -18,4 +18,10 @@
   .slider-btn {
     @apply bg-white  text-gray-900 p-1 rounded-full cursor-pointer hover:bg-opacity-75 transition text-2xl;
   }
+  .button {
+    @apply px-4 py-2  border rounded-full cursor-pointer active:scale-95 active:bg-gray-100 hover:shadow-md transition transform duration-100 ease-out;
+  }
+  .button2 {
+    @apply p-2 cursor-pointer active:scale-95 active:bg-gray-100 hover:bg-gray-100 hover:rounded-xl;
+  }
 }

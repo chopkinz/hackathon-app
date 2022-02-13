@@ -19,31 +19,32 @@ export const ShowcaseItem = (props: Props) => {
   const [trueStatus, setTrueStatus] = useState()
 
   return (
-    <Card className="flex flex-row select-none justify-between">
-      <CardMedia
-        component="img"
-        sx={{ width: 150 , height: 150, p:1, borderRadius: 5}}
-        image={props.image}
-        alt={props.common_name}
+    <div className="flex py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg pr-4 transition duration-200 ease-out first:border-t overflow-hidden">
+    <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0">
+      <img
+        src={props.image}
+        alt={props.common_name} 
+        layout="fill" 
       />
+      </div>
 
-      {/* Information and sponsoring metrics */}
-      <CardContent sx={{ flex: '1 0 auto' }}>
-        <Typography component="div" variant="h5" className="font-sans font-bold">
+      <div className="flex flex-col pl-5">
+        <div className="pt-2 text-sm text-gray-500 flex-grow">
           {props.common_name}
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" component="div" className="italic">
+       
+        <div className="italic text-xl text-black">
           {props.scientific_name}
-        </Typography>
+        </div>
+        <p className="text-left font-extralight pt-4">{props.status == "Extant (resident)" ? "Endangered" : "Extinct"}</p>
+        </div>
         <br/>
-        <Typography variant="subtitle1" color="text.secondary" component="div" className="font-mono">
-          {/* If not surviving, assume extinct */}
-          {props.status == "Extant (resident)" ? "Endangered" : "Extinct"}
-        </Typography>
-        <Box sx={{alignItems: 'center', pl: 3, pb: 1, backgroundColor: props.status == "Extant (resident)" ? "red" : "black"}} className="w-48">
-        </Box>
-      </CardContent>
-      <Button color="primary" variant="contained">Contained</Button>
-</Card>
+        <div className="flex justify-between items-end pt-5">
+        
+        </div>
+        <div className="items-center">
+      <button color="primary" className="button">Purchase</button></div>
+      </div>
+  </div>
   );
 };
+

@@ -84,7 +84,7 @@ export default function Showcase() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={6}>
-        {coords}
+        
         <Grid container spacing={2}>
           {animals.map((animal) => {
             return (
