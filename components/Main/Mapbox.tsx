@@ -19,7 +19,7 @@ export default function Mapbox({ coords }) {
       center: coords,
       zoom: zoom,
     });
-  }, [lng, lat, zoom]);
+  });
   return (
     <div>
       <div
