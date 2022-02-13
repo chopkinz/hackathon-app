@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Box, Card, CardContent, CardMedia, IconButton, Typography, Button } from "@mui/material";
+import { useRouter } from "next/router";
+import Scroll from "../Scroll"
 
 interface Props {
   common_name: string;
@@ -17,11 +19,17 @@ interface Props {
 
 export const ShowcaseItem = (props: Props) => {
   const [trueStatus, setTrueStatus] = useState()
+  const router = useRouter();
 
+  const home = () => {
+    router.push({
+      pathname: "/",
+    });
+  };
   return (
     <div className="flex py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg pr-4 transition duration-200 ease-out first:border-t overflow-hidden">
     <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0">
-      <img
+      <img onClick={() => router.push("/")}
         src={props.image}
         alt={props.common_name} 
         layout="fill" 
@@ -44,6 +52,7 @@ export const ShowcaseItem = (props: Props) => {
         <div className="items-center">
       <button color="primary" className="button">Purchase</button></div>
       </div>
+      <Scroll />
   </div>
   );
 };
