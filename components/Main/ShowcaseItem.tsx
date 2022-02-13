@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 interface Props {
-  commonName: string
-  scientificName: string
+  common_name: string
+  scientific_name: string
   status: string
   family: string
   order: string
