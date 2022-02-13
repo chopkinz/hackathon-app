@@ -55,13 +55,16 @@ export default function Showcase() {
     setAnimalCount(response.animalCount);
   };
   const getData = async (pageNum: number = 1) => {
-    request("/api/graphql", query, { first: 10, skip: (pageNum - 1) * 10 })
+    await request("/api/graphql", query, {
+      first: 10,
+      skip: (pageNum - 1) * 10,
+    })
       .then((response) => {
-        setAnimals(response.allAnimals);
         setCoords([
           response.allAnimals[0].longitude,
           response.allAnimals[0].latitude,
         ]);
+        setAnimals(response.allAnimals);
       })
       .catch((error) => {
         console.log(error);
@@ -69,9 +72,8 @@ export default function Showcase() {
   };
   const firstLoad = async () => {
     setDataLoading(true);
-    Promise.all([getAnimalCount(), getData()]).then(() =>
-      setDataLoading(false)
-    );
+    await Promise.all([getAnimalCount(), getData()]);
+    setDataLoading(false);
   };
   useEffect(() => {
     firstLoad();
