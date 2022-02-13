@@ -20,6 +20,7 @@ const typeDefs = gql`
     allAnimals(skip: Int = 0, first: Int = 0): [Animal]!
     randomAnimal: Animal
     animal(scientificName: String): Animal
+    animalCount: Int
   }
 `;
 

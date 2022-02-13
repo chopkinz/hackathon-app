@@ -18,6 +18,9 @@ const resolvers = {
         ...(first > 0 && { take: first }),
       });
     },
+    animalCount: async (_parent: any, _args: any, context: Context) => {
+      return await context.prisma.animal.count();
+    },
     randomAnimal: async (_parent: any, _args: any, context: Context) => {
       const animal = await context.prisma.$queryRaw`SELECT *
       FROM "Animal"
