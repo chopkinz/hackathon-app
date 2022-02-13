@@ -14,12 +14,33 @@ const resolvers = {
       context: Context
     ) => {
       return await context.prisma.animal.findMany({
+        where: {
+          NOT: [
+            {
+              common_name: null,
+            },
+            {
+              image: null,
+            },
+          ],
+        },
         skip: skip,
         ...(first > 0 && { take: first }),
       });
     },
     animalCount: async (_parent: any, _args: any, context: Context) => {
-      return await context.prisma.animal.count();
+      return await context.prisma.animal.count({
+        where: {
+          NOT: [
+            {
+              image: null,
+            },
+            {
+              common_name: null,
+            },
+          ],
+        },
+      });
     },
     randomAnimal: async (_parent: any, _args: any, context: Context) => {
       const animal = await context.prisma.$queryRaw`SELECT *
