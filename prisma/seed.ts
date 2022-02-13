@@ -41,12 +41,12 @@ async function main() {
         latitude: Number.parseFloat(
           item.Polygon?.outerBoundaryIs.LinearRing.coordinates.split(
             ","
-          )[1]
+          )[1] ?? 5.598835593000056
         ),
         longitude: Number.parseFloat(
           item.Polygon?.outerBoundaryIs.LinearRing.coordinates.split(
             ","
-          )[0]
+          )[0] ?? 95.49740000000008
         ),
         order: item.ExtendedData.SchemaData.SimpleData[19],
         phylum: item.ExtendedData.SchemaData.SimpleData[17],
