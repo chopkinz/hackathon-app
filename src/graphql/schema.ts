@@ -21,6 +21,7 @@ const typeDefs = gql`
     randomAnimal: Animal
     animal(scientificName: String): Animal
     animalCount: Int
+    animalImages: [String]
   }
 `;
 
