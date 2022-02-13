@@ -1,8 +1,8 @@
 import { gql } from "apollo-server-micro";
 const typeDefs = gql`
   type Animal {
-    common_name: String!
-    scientific_name: String
+    common_name: String
+    scientific_name: String!
     latitude: Float
     longitude: Float
     status: String
@@ -22,7 +22,6 @@ const typeDefs = gql`
     allAnimals: [Animal]!
     randomAnimal: Animal
     animal(scientificName: String): Animal
-    test: File
   }
 `;
 

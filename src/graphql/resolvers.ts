@@ -8,7 +8,6 @@ type Context = {
   prisma: PrismaClient;
 };
 const resolvers = {
-  Upload: GraphQLUpload,
   Query: {
     allAnimals: async (_parent: any, _args: any, context: Context) => {
       return await context.prisma.animal.findMany();
