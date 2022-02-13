@@ -46,13 +46,11 @@ export default function Home() {
   console.log(address);
 
   return (
-    <div className={style.wrapper}>
+    <div className='overflow-y-hidden'>
       <div className="before:content-[''] before:bg-black before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[{pic}] before:bg-cover before:bg-center before:opacity-30 before:blur">
         <Toaster position="top-center" reverseOrder={false} />
         {address ? (
-          <>
-            <Hero />
-          </>
+          <Hero />
         ) : (
           <div className={style.walletConnectWrapper}>
             <button
