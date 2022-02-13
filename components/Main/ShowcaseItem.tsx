@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 interface Props {
-  commonName: string
-  scientificName: string
+  common_name: string
+  scientific_name: string
   status: string
   family: string
   order: string
@@ -23,7 +23,7 @@ export const ShowcaseItem = (props: Props) => {
             <img src={props.image} className="object-scale-down" alt="Animal Photo" />
           </div>
           <div className="flex-initial w-64">
-            <p className='font-sans'>{props.scientificName}</p>
+            <p className='font-sans'>{props.scientific_name}</p>
           </div>
           <div className="flex-initial w-32">
             03
