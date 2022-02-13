@@ -84,12 +84,12 @@ export default function Showcase() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={6}>
-        
         <Grid container spacing={2}>
-          {animals.map((animal) => {
+          {animals.map((animal, idx) => {
             return (
               <Grid
                 item
+                key={idx}
                 xs={12}
                 onClick={() => {
                   setCoords([
