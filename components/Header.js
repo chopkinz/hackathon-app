@@ -64,7 +64,6 @@ function NavBar() {
           <MdIcons.MdOutlineAccountBalanceWallet />
         </div>
       </div>
-    </div>
   );
 }
 
