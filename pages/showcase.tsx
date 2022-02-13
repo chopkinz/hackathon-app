@@ -3,8 +3,8 @@ import { request, gql } from "graphql-request";
 import { Pagination } from "@mui/material";
 import { ShowcaseItem } from "../components/Main/ShowcaseItem";
 interface Animal {
-  commonName: string;
-  scientificName: string;
+  common_name: string;
+  scientific_name: string;
   longitude: string;
   latitude: string;
   status: string;
