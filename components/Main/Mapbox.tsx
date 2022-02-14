@@ -22,7 +22,7 @@ export default function Mapbox({ coords }) {
     });
   });
   return (
-    <div>
+    <div >
       <div
         ref={mapContainer}
         style={{ height: "100vh", width: "100%", position: "fixed" }}

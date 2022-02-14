@@ -21,13 +21,15 @@ export const ShowcaseItem = (props: Props) => {
   const router = useRouter();
 
   return (
-    <div className="flex py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg pr-4 transition duration-200 ease-out first:border-t overflow-hidden">
-    <div className="relative h-full w-full md:h-52 md:w-80 flex-shrink-0 aspect-w-16">
+    <div className="flex py-7 px-2 border-b cursor-pointer hover:opacity-80 hover:shadow-lg pr-4 transition duration-200 ease-out first:border-t overflow-hidden ">
+    <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0">
       <img
         src={props.image}
         alt={props.common_name} 
+        className="object-cover w-full h-full ronded-xl"
       />
-    </div>
+      </div>
+   
 
       <div className="flex flex-col pl-5">
         <div className="pt-2 text-sm text-gray-500 flex-grow">

@@ -15,16 +15,16 @@ function NavBar() {
         <p className="ml-[0.8rem] text-white font-semibold text-3xl">
           <GiUnicorn onClick={() => router.push("/")} />
         </p>
-        <div className="ml-[0.8rem] text-white font-semibold text-2xl">
+        <div className="ml-[0.8rem] text-white font-semibold text-lg lg:text-2xl">
           The Animal Project
         </div>
       </div>
-      <div className="flex flex-1 mx-[0.8rem] w-max-[520px] items-center bg-[#363840] rounded-[0.8rem] hover:bg-[#4c505c]">
+      <div className="hidden lg:flex flex-1 mx-[0.8rem] w-max-[520px] items-center bg-[#363840] rounded-[0.8rem] hover:bg-[#4c505c]">
         <div className="text-[#8a939b] mx-3 font-bold text-lg">
           <AiOutlineSearch />
         </div>
         <input
-          className="h-[2.6rem] w-full border-0 bg-transparent outline-0 ring-0 px-2 pl-0 text-[#e6e8eb] placeholder:text-[#8a939b]"
+          className=" h-[2.6rem] w-full border-0 bg-transparent outline-0 ring-0 px-2 pl-0 text-[#e6e8eb] placeholder:text-[#8a939b]"
           placeholder="Explore Endangered Species NFTs"
         />
       </div>
